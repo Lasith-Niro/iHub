@@ -78,12 +78,65 @@ if($user->isLoggedIn()) {
 
 
 } else {
-    echo '<p> You need to <a href="login.php">log in</a> or <a href="register.php">register</a></p>';
+    echo '
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- your webpage info goes here -->
+
+    <title>My First Website</title>
+    
+    <meta name="author" content="your name" />
+    <meta name="description" content="" />
+
+<!-- you should always add your stylesheet (css) in the head tag so that it starts loading before the page html is being displayed -->  
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    
+</head>
+<body>
+
+<!-- webpage content goes here in the body -->
+
+    <div id="page">
+        <div id="logo">
+            <h1><a href="/" id="logoLink">IHub</a></h1>
+        </div>
+        <div id="nav">
+            <ul>
+                <li><a href="login.php">Login in here</a></li>
+                <li><a href="register.php">Register in here</a></li>
+            </ul>   
+        </div>
+        <div id="content">
+            <h2>Hi..</h2>
+            <p>
+                there you can create group and share their nots/tasks/documents with other members!
+            </p>
+            <h2></h2>
+            <p> 
+                here you will find others with similar interests who are willing to share their experience on questions or comments you may have. Please read our Discussion Forum Terms of Use.
+            </p>
+        </div>
+        <div id="footer">
+            <p>
+                Made by Cyblnnovators
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+    ';
 }
+
+?>
+
+<?php include('css/style.css');?>
+<!--
 //$userInsert = DB::getInstance()->update('users', 9, array(
 //    'fname' => 'updated'
 //));
 //
 //if($userInsert){
 //    echo 'ok';
-//}
+//} -->
