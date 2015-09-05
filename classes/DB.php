@@ -86,9 +86,9 @@ class DB{
         return $this->action('SELECT * ', $table, $where);
     }
 
-    public function getMe($table, $where, $column)
+    public function getMe($table, $where)
     {
-        return $this->action('SELECT * ', $table, $where);
+        return $this->action('SELECT grpName ', $table, $where);
     }
 
     public function  delete($table, $where)

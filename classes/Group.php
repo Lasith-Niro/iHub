@@ -20,7 +20,7 @@ class Group{
     }
 
     public function getGroups($id){
-        return $this->_db->action('SELECT grpName','group_users', $id);
+        return $this->_db->getMe('GroupDetails', array('AdminID', '=', $id));
 
     }
 
