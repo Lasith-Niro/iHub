@@ -9,10 +9,14 @@ if(!$user->isLoggedIn()){
 }
 $myID = $user->data()->id;
 $arr = $grp->getGroups(array(
-    'GroupDetails', array('adminID', '=', $myID)
+    'GroupDetails', array('AdminID', '=', $myID)
 ));
-print_r($arr);
+//print_r($arr);
 
+while($row = mysql_fetch_object(array(
+    'GroupDetails', array('AdminID', '=', $myID)))) {
+    echo $row->grpName;
+}
 
 if(Input::exists()){
     if(Token::check(Input::get('token'))) {
