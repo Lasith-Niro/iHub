@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 05, 2015 at 01:02 ප.ව.
+-- Generation Time: Sep 05, 2015 at 01:05 ප.ව.
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -29,11 +29,21 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `group` (
   `grpName` varchar(20) NOT NULL,
   `gID` int(5) NOT NULL AUTO_INCREMENT,
-  `userID` int(5) NOT NULL,
   `AdminID` int(5) NOT NULL,
   `ModeratorID` int(5) NOT NULL,
   PRIMARY KEY (`gID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `group_users`
+--
+
+CREATE TABLE IF NOT EXISTS `group_users` (
+  `gID` int(5) NOT NULL,
+  `userID` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
