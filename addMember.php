@@ -6,7 +6,6 @@ $user = new User();
 if(!$user->isLoggedIn()){
     Redirect::to('index.php');
 }
-
 if(Input::exists()){
     if(Token::check(Input::get('token'))) {
         $validate = new Validate();

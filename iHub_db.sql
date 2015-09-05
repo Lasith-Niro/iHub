@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 05, 2015 at 05:09 පෙ.ව.
+-- Generation Time: Sep 05, 2015 at 01:02 ප.ව.
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -19,6 +19,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `iHub_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `group`
+--
+
+CREATE TABLE IF NOT EXISTS `group` (
+  `grpName` varchar(20) NOT NULL,
+  `gID` int(5) NOT NULL AUTO_INCREMENT,
+  `userID` int(5) NOT NULL,
+  `AdminID` int(5) NOT NULL,
+  `ModeratorID` int(5) NOT NULL,
+  PRIMARY KEY (`gID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -59,7 +74,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `levels` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `fname`, `lname`, `email`, `phone`, `levels`) VALUES
+(1, 'Lasith', '3d1b33ad0aee33adbf451ca2104a2c3b63757943c6d85b45ceb0c00662c7cf0f', 'lasith123', 'niroshan', 'lasith2013.l2n@gmail.org', '0712837662', 1),
+(2, 'Sunimal', '3d1b33ad0aee33adbf451ca2104a2c3b63757943c6d85b45ceb0c00662c7cf0f', 'sunimal', 'malkakulage', 'sskmal@gmail.com', '0712837555', 1);
 
 -- --------------------------------------------------------
 
