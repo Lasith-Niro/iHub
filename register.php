@@ -44,25 +44,7 @@ if(Input::exists()){
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Register | page</title>
-    <link rel="stylesheet" href="css/regCSS.css">
-</head>
-
 <body>
-
-<div id="mainWrapper">
-
-    <div id="header">
-        <header>
-
-            <img id="ucscLogo" src="images/ucsc.png" height="100px"/>
-            <!--<h1 id="welcome">Welcome to Easypay</h1>-->
-            <img id="easypayLogo" src="images/logo.png" height="100px"/>
-
-        </header>
-
-    </div>
     <div id="navBar">
         <!--Unordered list-->
         <ul>
@@ -98,19 +80,10 @@ if(Input::exists()){
                 <input id="name2" type="text" name="name2" placeholder="Your last name" value="<?php echo escape(Input::get('name2')); ?>">
             </div>
             <div>
-                <input id="regNumber" type="text" name="regNumber" placeholder="UCSC registration number" value="<?php echo escape(Input::get('regNumber'));?>">
-            </div>
-            <div>
                 <input id="email" type="email" name="email" placeholder="email address" value="<?php echo escape(Input::get('email')); ?>">
             </div>
             <div>
                 <input id="phoneNo" type="text" name="phoneNo" placeholder="Mobile number" value="<?php echo escape(Input::get('phoneNo')); ?>">
-            </div>
-            <div>
-                <input id="nic" type="text" name="nic" placeholder="NIC number" value="<?php echo escape(Input::get('nic')); ?>">
-            </div>
-            <div>
-                <input id="dob" type="date" name="dob" placeholder="date of birth" value="<?php echo escape(Input::get('dob')); ?>">
             </div>
             <div>
                 <input id="year" type="number" name="year" placeholder="Current Academic year" value="<?php echo escape(Input::get('year')); ?>">
@@ -122,7 +95,6 @@ if(Input::exists()){
 
 
     </div>
-</div>
 <!--<script>
 function myFunction() {
     var pass1 = document.getElementById("password").value;

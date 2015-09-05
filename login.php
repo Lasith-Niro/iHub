@@ -6,7 +6,6 @@
  * Time: 1:43 PM
  */
 require_once 'core/init.php';
-require 'browser/browserconnect.php';
 
 //$_SESSION['uname'] = Input::get('username');
 
@@ -42,35 +41,9 @@ if(Input::exists()){
         }
     }
 }
-$ua=getBrowser();
-$yourbrowser= $ua['name'];
-$temp_var;
-if ($yourbrowser=="Google Chrome"){
-    $temp_var="css/loginCSSChrome.css";
-}
-elseif($yourbrowser=="Mozilla Firefox"){
-    $temp_var="css/loginCSSFirefox.css";
-}
-elseif($yourbrowser=="Internet Explorer"){
-    $temp_var="css/loginCSSInternetExplorer.css";
-}
-
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <header>
-        <img id="ucscLogo" src="images/ucsc.png" />
-    </header>
-    <title>Login | page</title>
-    <link rel="stylesheet" href=<?php echo $temp_var?> >
-</head>
-<body>
-<div id="mainWrapper">
-
-
-
     <div id="loginForm">
         <form action="login.php" method="POST">
             <!--<div>

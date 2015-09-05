@@ -107,8 +107,8 @@ class user{
     }
 
 
-    public function hasPermission($key){
-        $group = $this->_db->get('groups', array('id', '=', $this->data()->group));
+    public function userLevel($key){
+        $group = $this->_db->get('levels', array('id', '=', $this->data()->group));
 //        print_r($group->first());
 
 
@@ -122,8 +122,8 @@ class user{
             }
         }
         return false;
-
     }
+
 
     public function exists(){
         return (!empty($this->_data)) ? true : false;

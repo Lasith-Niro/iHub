@@ -26,6 +26,11 @@ class Validate {
                    $this->addError("{$item} is required <br> ");
                 } else if(!empty($value)) {
                     switch($rule){
+                        case 'email':
+                            if(!preg_match("")){
+
+                            }
+
                         case 'min':
                             if(strlen($value) < $rule_value){
                                 $this->addError("{$item} must be a minimum of {$rule_value} characters.");
