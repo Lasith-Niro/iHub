@@ -101,15 +101,13 @@ class user{
 
 
     public function userLevel($key){
-        $group = $this->_db->get('levels', array('id', '=', $this->data()->group));
+        $group = $this->_db->get('levels', array('id', '=', $this->data()->levels));
 //        print_r($group->first());
 
 
         if($group->count()){
             $permissions = json_decode($group->first()->permissions, true);
 //            print_r($permission);
-
-
             if($permissions[$key] == true){
                 return true;
             }

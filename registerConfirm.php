@@ -20,7 +20,7 @@ $message = $messageArray[0];
 
 
 $var1 = $_SESSION['username'];
-$var2 = $_SESSION['password'];
+$var2 = Hash::make($_SESSION['password']);
 $var3 = $_SESSION['name1'];
 $var4 = $_SESSION['name2'];
 $var5 = $_SESSION['email'];

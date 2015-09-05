@@ -60,9 +60,10 @@ if($user->isLoggedIn()) {
 
     if ($user->userLevel('admin')) {
         echo '<p> You are an administrator</p>';
-    }
-    if( $user->userLevel('mod')){
+    } elseif ( $user->userLevel('mod')) {
         echo '<p>You are a moderator </p>';
+    } else {
+       echo '<p> hi </p>';
     }
 
 
