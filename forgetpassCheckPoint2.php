@@ -1,19 +1,21 @@
 <?php
 require_once 'core/init.php';
 
-$user = new User();
 
+$user = new User();
 $id = $_SESSION['id'];
 //if(!$user->isLoggedIn()){
 //    Redirect::to('index.php');
 //}
+echo $id;
 if(Input::exists()){
     if(Token::check(Input::get('token'))) {
         $validate = new Validate();
         $validation = $validate->check($_POST, array(
             'password_new' => array(
                 'required' => true,
-                'min' => 6
+                'min' => 6,
+                'regexPassword' => 'password'
             ),
             'password_new_again' => array(
                 'required' => true,
@@ -23,9 +25,8 @@ if(Input::exists()){
         ));
 
         if($validation->passed()){
-            $user->update($id, array(
-                'password' => Hash::make(Input::get('password_new'))
-                ));
+            $user->update(array('password' => Hash::make(Input::get('password_new'))), $id
+                );
             Session::flash('home', 'Your password has been changed.');
             Redirect::to('index.php');
             }

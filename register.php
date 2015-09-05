@@ -51,7 +51,6 @@ if(Input::exists()){
             $_SESSION['email']    = Input::get('email');
             $_SESSION['phoneNo']  = Input::get('phoneNo');
             Redirect::to('registerConfirm.php');
-
         } else {
             foreach ($validation->errors() as $error) {
                 echo $error, '</ br>';

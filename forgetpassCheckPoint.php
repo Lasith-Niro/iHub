@@ -8,19 +8,14 @@ $notification = new notification();
 $file = new accessFile();
 
 $pNum = $_SESSION['phone'];
-$id = $_SESSION['id'];
+//$id = $_SESSION['id'];
 $hiddenValue = Input::get('storeRandVal');
 $randomValue = rand(1000, 9999);
 $detailArray = $file->read('Files/RouterPhone');
 $messageArray = $file->read('Files/messages');
-
 echo $randomValue;
-
-//if(!$user->isLoggedIn()){
-//    Redirect::to('index.php');
-//}
-$var = $notification->send($detailArray[0],$pNum ,$messageArray[2] . $randomValue ,$detailArray[1]);
-echo $var;      //for db(development)
+//$var = $notification->send($detailArray[0],$pNum ,$messageArray[2] . $randomValue ,$detailArray[1]);
+//echo $var;      //for db(development)
 
 if(Input::exists()){
     if(Token::check(Input::get('token'))) {
@@ -35,7 +30,6 @@ if(Input::exists()){
         if($validation->passed()){
             $input = htmlspecialchars(trim(Input::get('rand_number')));
             if($input == $hiddenValue){
-                Session::flash('home', 'Your phone number has been changed.');
                 Redirect::to('forgetpassCheckPoint2.php');
             } elseif ($randomValue != $hiddenValue) {
                 Session::flash('home', 'you enter wrong key code.');
