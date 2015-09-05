@@ -48,7 +48,6 @@ if(Input::exists()){
                         'lname'     => $var4,
                         'email'     => $var5,
                         'phone'     => $var6,
-//                        'year'      => $_SESSION['year'],
                         'levels'     => 1
                     ));
                     Session::flash('home', 'You are registered!');

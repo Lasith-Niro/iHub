@@ -17,7 +17,7 @@ if($user->isLoggedIn()) {
         <li><a href="update.php">Update details</a></li>
         <li><a href="changepassword.php">Change password</a></li>
         <li><a href="changephonenumber.php">Change Phone Number</a> </li>
-        <li><a href="addMember.php">Create group</a></li>
+        <li><a href="createGroup.php">Create group</a></li>
         <li><a href="logout.php">Log out </a></li>
     </ul>
     <div class="row-fluid">

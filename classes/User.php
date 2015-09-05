@@ -24,7 +24,6 @@ class user{
         } else {
             $this->find($user);
         }
-
     }
 
     public function update($fields = array(), $id=null){
