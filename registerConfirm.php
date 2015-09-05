@@ -7,15 +7,15 @@ $notification = new notification();
 echo "To confirm your registration enter your registration code..." . '<br />';
 $hiddenValue = Input::get('storeRandVal');
 $randomValue = rand(1000, 9999);
-echo $randomValue;
+//echo $randomValue;
 $file = new accessFile();
 $detailArray = $file->read('Files/RouterPhone');
 $messageArray = $file->read('Files/messages');
 $from = $detailArray[0];
-//$to = $_SESSION['phone'];
+$to = $_SESSION['phone'];
 $pass = $detailArray[1];
 $message = $messageArray[0];
-//$var = $notification->send($from,$to,$message . $randomValue ,$pass);
+$var = $notification->send($from,$to,$message . $randomValue ,$pass);
 //echo $var;
 
 

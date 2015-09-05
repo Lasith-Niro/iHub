@@ -8,15 +8,10 @@ if(!$user->isLoggedIn()){
     Redirect::to('index.php');
 }
 $myID = $user->data()->id;
-//$arr = $grp->getGroups($myID)->data()->grpName;
-$result = mysql_query("SELECT grpName FROM GroupDetails");
-$storeArr = array();
-
-while($row = mysql_fetch_array($result, MYSQL_ASSOC)){
-    $storeArr[] = $row['grpName'];
-}
-
-print_r($storeArr);
+$arr = $grp->getGroups(array(
+    'GroupDetails', array('adminID', '=', $myID)
+));
+print_r($arr);
 
 
 if(Input::exists()){

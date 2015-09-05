@@ -4,8 +4,8 @@ require_once 'core/init.php';
 $user = new User();
 $grp = new Group();
 
-$newID = $grp->getgID(array('userGroups','gID',''));
-//echo $newID;
+$newID = $grp->getgID(array('GroupDetails','gID',''));
+
 if(Input::exists()){
     if(Token::check(Input::get('token'))) {
         $validate = new Validate();
@@ -14,7 +14,6 @@ if(Input::exists()){
                 'required' => true
             )
         ));
-
         $uname = Input::get('name');
         if($validation->passed()){
             try{

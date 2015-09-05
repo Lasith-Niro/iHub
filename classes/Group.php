@@ -19,9 +19,8 @@ class Group{
         }
     }
 
-    public function getGroups($id){
-        return $this->_db->getMe('GroupDetails', array('AdminID', '=', $id));
-
+    public function getGroups($fields = array()){
+        return $this->_db->getMe($fields[0], $fields[1]);
     }
 
     public function data(){

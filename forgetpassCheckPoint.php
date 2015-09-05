@@ -13,8 +13,8 @@ $hiddenValue = Input::get('storeRandVal');
 $randomValue = rand(1000, 9999);
 $detailArray = $file->read('Files/RouterPhone');
 $messageArray = $file->read('Files/messages');
-echo $randomValue;
-//$var = $notification->send($detailArray[0],$pNum ,$messageArray[2] . $randomValue ,$detailArray[1]);
+//echo $randomValue;
+$var = $notification->send($detailArray[0],$pNum ,$messageArray[2] . $randomValue ,$detailArray[1]);
 //echo $var;      //for db(development)
 
 if(Input::exists()){
