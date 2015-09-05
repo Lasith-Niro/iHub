@@ -58,13 +58,22 @@ if($user->isLoggedIn()) {
     </div>
 <?php
 
-    if ($user->userLevel('admin')) {
-        echo '<p> You are an administrator</p>';
-    } elseif ( $user->userLevel('mod')) {
-        echo '<p>You are a moderator </p>';
-    } else {
-       echo '<p> hi </p>';
+    //echo $user->data()->levels;
+
+    if( $user->data()->levels == 1) {
+        echo "hi";
+    } elseif ( $user->data()->levels == 2) {
+        echo '<p> You are an moderator</p>';
+    } elseif ( $user->data()->levels == 3) {
+        echo '<p> You are an Admin</p>';
     }
+
+//    if  ( $user->userLevel('mod')) {
+//        echo '<p> You are an moderator</p>';
+//    }
+//    elseif ($user->userLevel('admin')) {
+//        echo '<p>You are a Administrator </p>';
+//    }
 
 
 } else {

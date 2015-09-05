@@ -17,13 +17,13 @@ $randomValue = rand(1000, 9999);
 $detailArray = $file->read('Files/RouterPhone');
 $messageArray = $file->read('Files/messages');
 
-//echo $randomValue;
+echo $randomValue;
 
 if(!$user->isLoggedIn()){
     Redirect::to('index.php');
 }
 
-$var = $notification->send($detailArray[0],$_SESSION['new_number'],$messageArray[1] . $randomValue ,"6651");
+//$var = $notification->send($detailArray[0],$_SESSION['new_number'],$messageArray[1] . $randomValue ,"6651");
 echo $var;//for db(development)
 
 if(Input::exists()){

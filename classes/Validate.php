@@ -19,7 +19,7 @@ class Validate {
                    $this->addError("{$item} is required <br> ");
                 } else if(!empty($value)) {
                     switch($rule){
-                        case 'email':
+                        case 'regexEmail':
                             if(!filter_var($value, FILTER_VALIDATE_EMAIL)){
                                 $this->addError("{$item} must be valid email address.");
                             }
@@ -43,6 +43,11 @@ class Validate {
                         case 'regexString':
                             if(!preg_match("/^[a-zA-Z]*$/", $value)){
                                 $this->addError("{$item} must be valid {$item}.");
+                            }
+                            break;
+                        case 'regexPhone':
+                            if(!preg_match("#[0-9]+#", $value)){
+                                $this->addError("{$item} must be valid phone number.");
                             }
                             break;
                         case 'min':

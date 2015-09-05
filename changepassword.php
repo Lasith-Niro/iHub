@@ -17,7 +17,8 @@ if(Input::exists()){
             ),
             'password_new' => array(
                 'required' => true,
-                'min' => 6
+                'min' => 6,
+                'regexPassword' => 'password_new'
             ),
             'password_new_again' => array(
                 'required' => true,

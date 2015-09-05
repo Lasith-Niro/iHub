@@ -25,7 +25,8 @@ if(Input::exists()){
                 ),
                 'phoneNo' => array(
                     'required' => true,
-                    'min' => 10
+                    'min' => 10,
+                    'regexPhone' => 'phoneNo'
                 ),
                 'name1' => array(
                     'required' => true,
@@ -34,16 +35,21 @@ if(Input::exists()){
                 'name2' => array(
                     'required' => true,
                     'regexString' => 'name2'
+                ),
+                'email' => array(
+                    'required' => true,
+                    'regexEmail' => 'email',
+                    'max' => 100
                 )
             )
         );
         if($validation->passed()) {
             $_SESSION['username'] = Input::get('username');
             $_SESSION['password'] = Input::get('password');
-            $_SESSION['name1'] = Input::get('name1');
-            $_SESSION['name2'] = Input::get('name2');
-            $_SESSION['email'] = Input::get('email');
-            $_SESSION['phoneNo'] = Input::get('phoneNo');
+            $_SESSION['name1']    = Input::get('name1');
+            $_SESSION['name2']    = Input::get('name2');
+            $_SESSION['email']    = Input::get('email');
+            $_SESSION['phoneNo']  = Input::get('phoneNo');
             Redirect::to('registerConfirm.php');
 
         } else {

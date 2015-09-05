@@ -14,7 +14,8 @@ if(Input::exists()){
             'new_phone_number' => array(
                 'required' => true,
                 'min' => 10,
-                'max' => 10
+                'max' => 10,
+                'regexPhone' => 'new_phone_number'
             )
         ));
 
@@ -29,7 +30,7 @@ if(Input::exists()){
                 }
         } else {
             foreach ($validation->errors() as $error) {
-                echo $error, '<br>';
+                echo $error, '<br />';
             }
         }
     }
