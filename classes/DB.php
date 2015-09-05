@@ -76,12 +76,17 @@ class DB{
         $sql    = "{$action} {$column} FROM {$table} ORDER BY {$column} DESC LIMIT 1";
 
         if(!$this->query($sql, array($value))->error()){
-            return true;
+            return $this->first()->gID;
         }
         return false;
     }
 
     public function get($table, $where)
+    {
+        return $this->action('SELECT * ', $table, $where);
+    }
+
+    public function getMe($table, $where, $column)
     {
         return $this->action('SELECT * ', $table, $where);
     }

@@ -28,7 +28,6 @@ if(Input::exists()){
             try{
 //                $query = "INSERT INTO group VALUES ('$gName', '$AdID', '$mID', '$curDate','$curTime')";
 //                mysql_query($query);
-
                 $grp->createGroup(array(
                     'grpName' => $gName,
                     'AdminID' => $AdID,
@@ -45,6 +44,7 @@ if(Input::exists()){
                 $user->update(array(
                     'levels' => 3
                 ));
+//                $_SESSION['grpName'] = $gName;
                 Redirect::to('addMembers.php');
 
 
