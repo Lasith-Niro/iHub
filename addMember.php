@@ -13,9 +13,13 @@ if(Input::exists()){
         $validation = $validate->check($_POST, array(
             'userName' => array(
                 'required' => true
+            ),
+            'groupName' => array(
+                'required' => true,
+                'min' => 3,
+                'max' => 20,
             )
         ));
-
         $uname = Input::get('userName');
         if($validation->passed()){
             $user = new User();
@@ -42,9 +46,15 @@ if(Input::exists()){
 
 <form action="" method="post">
     <div class="field">
+        <label for="group_name">Enter group name</label>
+        <input type="text" name="groupName" id="groupName">
+    </div>
+
+    <div class="field">
         <label for="Password_current">Enter user name</label>
         <input type="text" name="userName" id="userName">
     </div>
+
     <input type="submit" value="search">
     <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 </form>
