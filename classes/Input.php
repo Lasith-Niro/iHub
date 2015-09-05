@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Lasith Niroshan
- * Date: 5/23/2015
- * Time: 1:47 PM
- */
 class Input
 {
     public static function exists($type = 'post')

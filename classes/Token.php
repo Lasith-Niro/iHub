@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Lasith Niroshan
- * Date: 5/23/2015
- * Time: 1:49 PM
- */
-
 class Token{
     public static function generate(){
         return Session::put(Config::get('session/token_name'), md5(uniqid()));

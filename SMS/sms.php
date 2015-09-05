@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Anjana-Nisal
- * Date: 11/08/15
- * Time: 17:29
- */
 class notification{
 //    var $password="6651";
     function send($from,$to,$message,$password){

@@ -5,6 +5,7 @@ require_once 'core/init.php';
 
 if(Input::exists()){
     if(Token::check(Input::get('token'))) {
+
         $validate = new Validate();
         $validation = $validate->check($_POST, array(
                 'username' => array(
@@ -15,7 +16,8 @@ if(Input::exists()){
                 ),
                 'password' => array(
                     'required' => true,
-                    'min' => 6
+                    'min' => 6,
+                    'regexPassword' => 'password'
                 ),
                 'password_again' => array(
                     'required' => true,
@@ -25,14 +27,25 @@ if(Input::exists()){
                     'required' => true,
                     'min' => 10
                 ),
-                'nic' => array(
+                'name1' => array(
                     'required' => true,
-                    'min' => 10
+                    'regexString' => 'name1'
+                ),
+                'name2' => array(
+                    'required' => true,
+                    'regexString' => 'name2'
                 )
             )
         );
         if($validation->passed()) {
+            $_SESSION['username'] = Input::get('username');
+            $_SESSION['password'] = Input::get('password');
+            $_SESSION['name1'] = Input::get('name1');
+            $_SESSION['name2'] = Input::get('name2');
+            $_SESSION['email'] = Input::get('email');
+            $_SESSION['phoneNo'] = Input::get('phoneNo');
             Redirect::to('registerConfirm.php');
+
         } else {
             foreach ($validation->errors() as $error) {
                 echo $error, '</ br>';
@@ -86,7 +99,7 @@ if(Input::exists()){
                 <input id="phoneNo" type="text" name="phoneNo" placeholder="Mobile number" value="<?php echo escape(Input::get('phoneNo')); ?>">
             </div>
             <div>
-                <input id="year" type="number" name="year" placeholder="Current Academic year" value="<?php echo escape(Input::get('year')); ?>">
+                <input id="level" type="number" name="level" placeholder="Admin/moderator/user" value="<?php echo escape(Input::get('year')); ?>">
             </div>
 
             <input type = "hidden" name="token" value="<?php echo Token::generate(); ?>">

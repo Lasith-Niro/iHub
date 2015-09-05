@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Lasith Niroshan
- * Date: 5/23/2015
- * Time: 1:50 PM
- */
-
 class Validate {
     private $_passed = false,
             $_errors = array(),
@@ -27,10 +20,31 @@ class Validate {
                 } else if(!empty($value)) {
                     switch($rule){
                         case 'email':
-                            if(!preg_match("")){
-
+                            if(!filter_var($value, FILTER_VALIDATE_EMAIL)){
+                                $this->addError("{$item} must be valid email address.");
                             }
-
+                            break;
+                        case 'name':
+                            if(!empty($value)){
+                                $this->addError("You forgot your user name.");
+                            }
+                            break;
+                        case 'regexPassword':
+                            if(!preg_match("#[0-9]+#", $value)){
+                                $this->addError("{$item} must be valid email address.");
+                            } elseif(!preg_match("#[A-Z]+#", $value)){
+                                $this->addError("{$item} must be valid email address.");
+                            } elseif(!preg_match("#[a-z]+#", $value)){
+                                $this->addError("{$item} must be valid email address.");
+                            }  elseif(!preg_match("/[!@#$%^&*()\-_=+{};:,<.>]/", $value)){
+                                $this->addError("{$item} must be valid email address.");
+                            }
+                            break;
+                        case 'regexString':
+                            if(!preg_match("/^[a-zA-Z]*$/", $value)){
+                                $this->addError("{$item} must be valid {$item}.");
+                            }
+                            break;
                         case 'min':
                             if(strlen($value) < $rule_value){
                                 $this->addError("{$item} must be a minimum of {$rule_value} characters.");

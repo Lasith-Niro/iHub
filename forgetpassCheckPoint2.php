@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Shanika-Edirisinghe
- * Date: 20/08/15
- * Time: 11:54
- */
-
 require_once 'core/init.php';
 
 $user = new User();

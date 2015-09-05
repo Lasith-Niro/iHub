@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Lasith Niroshan
- * Date: 5/23/2015
- * Time: 1:49 PM
- */
 class Session{
     public static function exists($name){
 //        isset — Determine if a variable is set and is not NULL

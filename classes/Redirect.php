@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Lasith Niroshan
- * Date: 5/23/2015
- * Time: 1:48 PM
- */
 class Redirect {
 
     public static function to($location  = null){

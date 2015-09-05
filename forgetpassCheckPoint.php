@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Shanika-Edirisinghe
- * Date: 12/08/15
- * Time: 14:10
- */
 require_once 'core/init.php';
 require 'SMS/sms.php';
 require 'Files/accessFile.php';

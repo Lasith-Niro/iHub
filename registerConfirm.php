@@ -3,28 +3,28 @@ require_once 'core/init.php';
 require 'SMS/sms.php';
 require 'Files/accessFile.php';
 
-$user = new User();
 $notification = new notification();
-$file = new accessFile();
-
-echo "Welcome to confirm your phone number!" . '<br />';
-//echo $_SESSION['old_number'] . '<br />';
-//echo $_SESSION['new_number'] . '<br />';
-//echo $randomValue. '<br />';
-//echo gettype($rnd);
+echo "To confirm your registration enter your registration code..." . '<br />';
 $hiddenValue = Input::get('storeRandVal');
 $randomValue = rand(1000, 9999);
+echo $randomValue;
+$file = new accessFile();
 $detailArray = $file->read('Files/RouterPhone');
 $messageArray = $file->read('Files/messages');
+$from = $detailArray[0];
+//$to = $_SESSION['phone'];
+$pass = $detailArray[1];
+$message = $messageArray[0];
+//$var = $notification->send($from,$to,$message . $randomValue ,$pass);
+//echo $var;
 
-//echo $randomValue;
 
-if(!$user->isLoggedIn()){
-    Redirect::to('index.php');
-}
-
-$var = $notification->send($detailArray[0],$_SESSION['new_number'],$messageArray[1] . $randomValue ,"6651");
-echo $var;//for db(development)
+$var1 = $_SESSION['username'];
+$var2 = $_SESSION['password'];
+$var3 = $_SESSION['name1'];
+$var4 = $_SESSION['name2'];
+$var5 = $_SESSION['email'];
+$var6 = $_SESSION['phoneNo'];
 
 if(Input::exists()){
     if(Token::check(Input::get('token'))) {
@@ -38,13 +38,25 @@ if(Input::exists()){
         ));
         if($validation->passed()){
             $input = htmlspecialchars(trim(Input::get('rand_number')));
-
             if($input == $hiddenValue){
-                $user->update(array(
-                    'phone' => $_SESSION['new_number']
-                ));
-                Session::flash('home', 'Your phone number has been changed.');
-                Redirect::to('index.php');
+                $user = new User();
+                try{
+                    $user->create(array(
+                        'username'  => $var1,
+                        'password'  => $var2,
+                        'fname'     => $var3,
+                        'lname'     => $var4,
+                        'email'     => $var5,
+                        'phone'     => $var6,
+//                        'year'      => $_SESSION['year'],
+                        'levels'     => 1
+                    ));
+                    Session::flash('home', 'You are registered!');
+                    Redirect::to('index.php');
+                }catch (Exception $e){
+                    die($e->getMessage());
+                }
+
             } elseif ($randomValue != $hiddenValue) {
 //                echo "error";
                 Session::flash('home', 'you enter wrong key code.');
@@ -52,11 +64,12 @@ if(Input::exists()){
             }
         } else {
             foreach ($validation->errors() as $error) {
-                echo $error, '<br />';
+                echo $error, '</ br>';
             }
         }
     }
 }
+//session_unset();
 ?>
 
 <form action="" method="post">
@@ -65,6 +78,6 @@ if(Input::exists()){
         <input type="number" name="rand_number" id="rand_number">
     </div>
     <input type="hidden" name="storeRandVal" value="<?php echo $randomValue; ?>">
-    <input type="submit" value="Change">
+    <input type="submit" value="Register">
     <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 </form>

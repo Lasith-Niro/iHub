@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Lasith Niroshan
- * Date: 5/23/2015
- * Time: 1:46 PM
- */
-
 class DB{
     private static $_instance = null;
     private $_pdo,

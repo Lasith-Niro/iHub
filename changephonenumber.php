@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lasith-niro
- * Date: 11/08/15
- * Time: 09:13
- */
 require_once 'core/init.php';
 $user = new User();
 $old_phone_number = $user->data()->phone;
