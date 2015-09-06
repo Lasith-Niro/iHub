@@ -63,7 +63,10 @@ if(Input::exists()){
             }
         } else {
             foreach ($validation->errors() as $error) {
-                echo $error, '</ br>';
+                ?>
+                <script type="text/javascript"> alert(" Sorry, registration failed. <?php echo $error ,'<br />';?>")</script>
+//                echo $error, '</ br>';
+<?php
             }
         }
     }

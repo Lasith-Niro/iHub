@@ -53,7 +53,9 @@ if(Input::exists()){
             Redirect::to('registerConfirm.php');
         } else {
             foreach ($validation->errors() as $error) {
-                echo $error, '</ br>';
+                ?>
+                <script type="text/javascript"> alert(" Sorry, process failed.". <?php echo escape($error); ?>)</script>
+            <?php
             }
         }
     }

@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Smalkakulage
- * Date: 9/6/15
- * Time: 1:06 AM
- */ ?>
+ ?>
 
 
 <table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">

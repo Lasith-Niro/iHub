@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Smalkakulage
- * Date: 9/6/15
- * Time: 1:07 AM
- */ ?>
+ ?>
 
 
 <?php

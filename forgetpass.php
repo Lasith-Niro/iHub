@@ -28,8 +28,10 @@ if(Input::exists()){
         }
     } else {
         foreach ($validation->errors() as $er) {
-            echo $er, '<\ br>';
-        }
+            ?>
+            <script type="text/javascript"> alert(" Sorry, process failed.")</script>
+<?php
+}
     }
 
     }

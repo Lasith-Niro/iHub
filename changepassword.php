@@ -41,7 +41,10 @@ if(Input::exists()){
 
         } else {
             foreach ($validation->errors() as $error) {
-                echo $error, '<br />';
+                ?>
+<script type="text/javascript"> alert(" Sorry, password change failed.")</script>
+<!--                echo $error, '<br />';-->
+<?php
             }
         }
     }
