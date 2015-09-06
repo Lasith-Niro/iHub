@@ -49,7 +49,7 @@ if(Input::exists()){
             $_SESSION['name1']    = Input::get('name1');
             $_SESSION['name2']    = Input::get('name2');
             $_SESSION['email']    = Input::get('email');
-            $_SESSION['phone']    = Input::get('phoneNo');
+            $_SESSION['phoneNo']  = Input::get('phoneNo');
             Redirect::to('registerConfirm.php');
         } else {
             foreach ($validation->errors() as $error) {
@@ -69,7 +69,6 @@ if(Input::exists()){
             <ul>
                 <!--List items-->
                 <li><a href="#" class="current">Home</a></li>
-                <li><a href="http://www.ucsc.cmb.ac.lk/" >UCSC</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">contact</a></li>
                 <li><a href="login.php">Sign in</a></li>
@@ -103,6 +102,9 @@ if(Input::exists()){
             </div>
             <div>
                 <input id="phoneNo" type="text" name="phoneNo" placeholder="Mobile number" value="<?php echo escape(Input::get('phoneNo')); ?>">
+            </div>
+            <div>
+                <input id="level" type="number" name="level" placeholder="Admin/moderator/user" value="<?php echo escape(Input::get('year')); ?>">
             </div>
 
             <input type = "hidden" name="token" value="<?php echo Token::generate(); ?>">
@@ -139,22 +141,6 @@ body {
     padding: 0;
     position: relative;
 }
-h1{ font-size:28px;}
-h2{ font-size:26px;}
-h3{ font-size:18px;}
-h4{ font-size:16px;}
-h5{ font-size:14px;}
-h6{ font-size:12px;}
-h1,h2,h3,h4,h5,h6{ color:#563D64;}
-small{ font-size:10px;}
-b, strong{ font-weight:bold;}
-a{ text-decoration: none; }
-a:hover{ text-decoration: underline; }
-.left { float:left; }
-.right { float:right; }
-.alignleft { float: left; margin-right: 15px; }
-.alignright { float: right; margin-left: 15px; }
-.clearfix:after,
 form:after {
     content: ".";
     display: block;
@@ -165,17 +151,6 @@ form:after {
 .regForm { margin: 25px auto; position: relative; width: 900px; }
 #content {
     background: #f9f9f9;
-    background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(249,249,249,1) 100%);
-    background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-    background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-    background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-    background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#f9f9f9',GradientType=0 );
-    -webkit-box-shadow: 0 1px 0 #fff inset;
-    -moz-box-shadow: 0 1px 0 #fff inset;
-    -ms-box-shadow: 0 1px 0 #fff inset;
-    -o-box-shadow: 0 1px 0 #fff inset;
-    box-shadow: 0 1px 0 #fff inset;
     border: 1px solid #c4c6ca;
     margin: 0 auto;
     padding: 25px 0 0;
@@ -185,89 +160,12 @@ form:after {
     width: 400px;
 }
 
-#content h1 {
-    color: #7E7E7E;
-    font: bold 25px Helvetica, Arial, sans-serif;
-    letter-spacing: -0.05em;
-    line-height: 20px;
-    margin: 10px 0 30px;
-}
-#content h1:before,
-#content h1:after {
-    content: "";
-    height: 1px;
-    position: absolute;
-    top: 10px;
-    width: 27%;
-}
-#content h1:after {
-    background: rgb(126,126,126);
-    background: -moz-linear-gradient(left,  rgba(126,126,126,1) 0%, rgba(255,255,255,1) 100%);
-    background: -webkit-linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-    background: -o-linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-    background: -ms-linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-    background: linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-    right: 0;
-}
-#content h1:before {
-    background: rgb(126,126,126);
-    background: -moz-linear-gradient(right,  rgba(126,126,126,1) 0%, rgba(255,255,255,1) 100%);
-    background: -webkit-linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-    background: -o-linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-    background: -ms-linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-    background: linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-    left: 0;
-}
-#content:after,
-#content:before {
-    background: #f9f9f9;
-    background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(249,249,249,1) 100%);
-    background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-    background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-    background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-    background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#f9f9f9',GradientType=0 );
-    border: 1px solid #c4c6ca;
-    content: "";
-    display: block;
-    height: 100%;
-    left: -1px;
-    position: absolute;
-    width: 100%;
-}
-#content:after {
-    -webkit-transform: rotate(2deg);
-    -moz-transform: rotate(2deg);
-    -ms-transform: rotate(2deg);
-    -o-transform: rotate(2deg);
-    transform: rotate(2deg);
-    top: 0;
-    z-index: -1;
-}
-#content:before {
-    -webkit-transform: rotate(-3deg);
-    -moz-transform: rotate(-3deg);
-    -ms-transform: rotate(-3deg);
-    -o-transform: rotate(-3deg);
-    transform: rotate(-3deg);
-    top: 0;
-    z-index: -2;
-}
+
 #content form { margin: 0 20px; position: relative }
 #content form input[type="text"],
 #content form input[type="password"],
 #content form input[type="email"],
 #content form input[type="number"]{
-    -webkit-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-    -moz-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-    -ms-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-    -o-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-    box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -ms-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
     border: 1px solid #c8c8c8;
     color: #777;
     font: 13px Helvetica, Arial, sans-serif;
@@ -292,11 +190,6 @@ form:after {
 #password { background-position: 10px -53px !important }
 #content form input[type="submit"] {
     background: rgb(254,231,154);
-    background: -moz-linear-gradient(top,  rgba(254,231,154,1) 0%, rgba(254,193,81,1) 100%);
-    background: -webkit-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
-    background: -o-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
-    background: -ms-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
-    background: linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
     border: 1px solid #D69E31;
     color: #85592e;
     cursor: pointer;
@@ -332,7 +225,7 @@ form:after {
 
 .nav ul {
   list-style: none;
-  background-color: #e67e22;
+  background-color: #84C5DB;
   text-align: center;
   padding: 0;
   margin: 0;
@@ -353,7 +246,7 @@ form:after {
 }
  
 .nav a:hover {
-  background-color: #d35400;
+  background-color: #196B6A;
 }
  
 .nav a.active {
