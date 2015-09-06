@@ -10,19 +10,57 @@ if($user->isLoggedIn()) {
     $_SESSION['user_name'] = $user->data()->username;
 
     ?>
-    <p>Wellcome <?php echo escape($user->data()->username) ?></p>
+    
 <!--    <p>Hello <a href="profile.php?user=--><?php //echo escape($user->data()->username); ?><!--"> --><?php //echo escape($user->data()->username); ?><!-- </a> ! </p>-->
+    <html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/css.css"/>
+</head>
+<body>
+    <div id="top-menu">
     <ul>
-<!--        <li><a href="profile.php">My profile </a> </li>-->
         <li><a href="update.php">Update details</a></li>
-        <li><a href="changepassword.php">Change password</a></li>
-        <li><a href="changephonenumber.php">Change Phone Number</a> </li>
-        <li><a href="createGroup.php">Create group</a></li>
-        <li><a href="myGroups.php">My groups</a></li>
-        <li><a href="create_topic.php">Create Topics</a></li>
-        <li><a href="main_forum.php">View Topics</a></li>
-        <li><a href="logout.php">Log out </a></li>
+        <li><a href="myGroups.php">Fourm</a>
+            <ul>
+                <li><a href="createGroup.php">Create group</a></li>
+                <li><a href="#">Group Settings</a></li>
+                <li><a href="create_topic.php">Create Topics</a></li>
+                <li><a href="main_forum.php">View Topics</a></li>
+            </ul>
+        </li>
+        <li><a href="#">contact us</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Profile</a>
+            <ul>
+                <li><a href="changepassword.php">Change password</a></li>
+                <li><a href="changephonenumber.php">Change Phone Number</a> </li>
+                <li><a href="logout.php">Log out </a></li>
+            </ul>
+        </li>
     </ul>
+    </div>
+    <div id="container">
+        <div class="sidebar">
+            <ul id="nav">
+                <li><a class="selected" href="#">Dashboad</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </div>
+    <div class="content">
+
+        <h1>Dashboard</h1>
+            <p>Wellcome <?php echo escape($user->data()->username) ?></p>
+           <div id="box">
+                <div class="box-top">News</div>
+                <div class="box-panel">
+                    This is some simple pages
+                </div>
+            </div>
+    </div>
+</body>
+</html>
+    </div>
     <div class="row-fluid">
         <div class="col-md-5 col-md-offset-1">
             <h4><span id=tick2>

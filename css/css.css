@@ -1,0 +1,138 @@
+
+
+div#top-menu {
+	width: 100%;
+	height: 50px;
+	background-color: #6FCEED;
+	margin: 0 auto;
+}
+
+div#top-menu ul ul {
+	display: none;
+}
+
+div#top-menu ul li:hover > ul {
+		display: block;
+}
+
+div#top-menu ul {
+	box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
+	padding: 0 10px;
+	border-radius: 5px;  
+	list-style: none;
+	position: relative;
+	display: inline-table;
+}
+div#top-menu ul:after {
+content: ""; 
+clear: both; 
+display: block;
+}
+div#top-menu ul li {
+	float: left;
+}
+div#top-menu ul li:hover {
+	background: #4b545f;
+	background: linear-gradient(top, #4f5964 0%, #5f6975 40%);
+	background: -moz-linear-gradient(top, #4f5964 0%, #5f6975 40%);
+	background: -webkit-linear-gradient(top, #4f5964 0%,#5f6975 40%);
+}
+div#top-menu ul li:hover a {
+	color: #fff;
+}
+	
+div#top-menu ul li a {
+	display: block; 
+	padding: 10px 40px;
+	color: #757575; text-decoration: none;
+}
+div#top-menu ul ul {
+	background: #5f6975; border-radius: 0px; padding: 0;
+	position: absolute; top: 100%;
+}
+div#top-menu ul ul li {
+	float: none; 
+	border-top: 1px solid #6b727c;
+	border-bottom: 1px solid #575f6a;
+	position: relative;
+}
+div#top-menu ul ul li a {
+	padding: 10px 30px;
+	color: #fff;
+}	
+div#top-menu ul ul li a:hover {
+	background: #4b545f;
+}
+
+div#top-menu ul ul ul {
+	position: absolute; left: 100%; top:0;
+}
+
+div#container {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.sidebar {
+	width: 250px;
+/*	height: 100%; */
+	background-color: #171717;
+	float: left; 
+}
+
+ul#nav {
+	
+}
+
+ul#nav li{
+	list-style: none;	
+}
+
+ul#nav li a{
+	color: #ccc;
+	display: block;
+	padding: 10px;
+	font-size: 1em;
+	border-bottom: 3px solid #0A0A0A;
+	-webkit-transition: 0.2s;
+	-moz-transition: 0.2s;
+	-o-transition: 0.2s;
+	transition: 0.2s;
+}
+ul#nav li a.selected {
+	background-color: #030303;
+	color: #fff;
+}
+
+ul#nav li a.selected {
+	background-color: #030303;
+	color: #fff;
+}
+
+.content {
+	width: auto;
+	margin-left: 250px;
+	height: 100%;
+	background-color: #95a5a6;
+	padding: 15px;
+}
+
+.content p {
+	color: #424242;
+	font-size: 0.9em;
+}
+
+div#box .box-top{
+	color: #fff;
+	text-shadow: 0px 0px 1px #ddd;
+	background-color: #2980b9;
+	padding: 5px;
+	padding-left: 15px;  
+	font-weight: 300;
+}
+
+div#box .box-panel {
+	padding: 15px;
+	background-color: #fff;
+	color: #333;
+}
