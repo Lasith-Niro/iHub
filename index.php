@@ -24,6 +24,7 @@ if($user->isLoggedIn()) {
                     <li><a href="#">Group Settings</a></li>
                     <li><a href="create_topic.php">Create Topics</a></li>
                     <li><a href="main_forum.php">View Topics</a></li>
+                    <li><a href="upload.php">Upload files</a></li>
                 </ul>
             </li>
             <li><a href="#">contact us</a></li>
