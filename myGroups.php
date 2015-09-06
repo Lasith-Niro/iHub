@@ -13,8 +13,7 @@ $arr = $grp->getGroups(array(
 ));
 //print_r($arr);
 
-while($row = mysql_fetch_object(array(
-    'GroupDetails', array('AdminID', '=', $myID)))) {
+while($row = mysql_fetch_object(array('GroupDetails', array('AdminID', '=', $myID)))) {
     echo $row->grpName;
 }
 

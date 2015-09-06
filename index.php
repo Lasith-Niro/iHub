@@ -19,6 +19,8 @@ if($user->isLoggedIn()) {
         <li><a href="changephonenumber.php">Change Phone Number</a> </li>
         <li><a href="createGroup.php">Create group</a></li>
         <li><a href="myGroups.php">My groups</a></li>
+        <li><a href="create_topic.php">Create Topics</a></li>
+        <li><a href="main_forum.php">View Topics</a></li>
         <li><a href="logout.php">Log out </a></li>
     </ul>
     <div class="row-fluid">

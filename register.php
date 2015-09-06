@@ -49,7 +49,7 @@ if(Input::exists()){
             $_SESSION['name1']    = Input::get('name1');
             $_SESSION['name2']    = Input::get('name2');
             $_SESSION['email']    = Input::get('email');
-            $_SESSION['phoneNo']  = Input::get('phoneNo');
+            $_SESSION['phone']    = Input::get('phoneNo');
             Redirect::to('registerConfirm.php');
         } else {
             foreach ($validation->errors() as $error) {
@@ -103,9 +103,6 @@ if(Input::exists()){
             </div>
             <div>
                 <input id="phoneNo" type="text" name="phoneNo" placeholder="Mobile number" value="<?php echo escape(Input::get('phoneNo')); ?>">
-            </div>
-            <div>
-                <input id="level" type="number" name="level" placeholder="Admin/moderator/user" value="<?php echo escape(Input::get('year')); ?>">
             </div>
 
             <input type = "hidden" name="token" value="<?php echo Token::generate(); ?>">
